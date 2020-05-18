@@ -4,7 +4,7 @@ heroImage: /spider.png
 heroText: 我的主页
 tagline: My Homepage
 actionText: 技术文档 →
-actionLink: /tech/interview/
+actionLink: /JavaScript/
 features: 
 - title: 简洁至上
   details: '写博客'

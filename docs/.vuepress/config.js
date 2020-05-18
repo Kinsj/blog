@@ -8,9 +8,31 @@ module.exports = {
   themeConfig: {
     logo: '/avatar.png',  // 左上角logo
     nav: [ // 导航配置
-      {text: '首页', link: '/' },
-      {text: '技术文档', link: '/tech/interview'},
+      {text: '首页', link: '/'},
+      {text: '技术文档', link: '/javascript'},
     ],
-    sidebar: 'auto', // 侧边栏配置
+    sidebar: [ // 侧边栏配置
+      {
+        title: 'javascript',
+        collapsable: false,
+        children: [
+          '/javascript/',
+        ]
+      },
+      {
+        title: '工程化',
+        collapsable: false,
+        children: [
+          '/engineering/',
+        ]
+      },
+      {
+        title: '其他',
+        collapsable: false,
+        children: [
+          '/other/markdown.md',
+        ]
+      },
+    ]
   }
 };
