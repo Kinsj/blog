@@ -1,6 +1,7 @@
 module.exports = {
   title: '老Kin的博客',
   description: 'Just playing around',
+  base: '/blog/',
   head: [  // 注入到当前的HTML <head> 中
     ['link', {rel: 'icon', href: '/avatar.png'}], // 自定义icon
   ],
