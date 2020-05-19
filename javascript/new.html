@@ -7,7 +7,7 @@
     <meta name="generator" content="VuePress 1.5.0">
     <link rel="icon" href="/blog/avatar.png">
     <meta name="description" content="Just playing around">
-    <link rel="preload" href="/blog/assets/css/0.styles.b3ad8e09.css" as="style"><link rel="preload" href="/blog/assets/js/app.b782e0a3.js" as="script"><link rel="preload" href="/blog/assets/js/2.c49ced60.js" as="script"><link rel="preload" href="/blog/assets/js/10.4e12e48e.js" as="script"><link rel="prefetch" href="/blog/assets/js/11.5a1f9290.js"><link rel="prefetch" href="/blog/assets/js/3.240af653.js"><link rel="prefetch" href="/blog/assets/js/4.685e2bcc.js"><link rel="prefetch" href="/blog/assets/js/5.7706d3c7.js"><link rel="prefetch" href="/blog/assets/js/6.c6be9cac.js"><link rel="prefetch" href="/blog/assets/js/7.2a5a78f6.js"><link rel="prefetch" href="/blog/assets/js/8.f0ea4130.js"><link rel="prefetch" href="/blog/assets/js/9.1e8d46fc.js">
+    <link rel="preload" href="/blog/assets/css/0.styles.b3ad8e09.css" as="style"><link rel="preload" href="/blog/assets/js/app.87b37d82.js" as="script"><link rel="preload" href="/blog/assets/js/2.c49ced60.js" as="script"><link rel="preload" href="/blog/assets/js/10.2b972517.js" as="script"><link rel="prefetch" href="/blog/assets/js/11.936fd381.js"><link rel="prefetch" href="/blog/assets/js/3.240af653.js"><link rel="prefetch" href="/blog/assets/js/4.685e2bcc.js"><link rel="prefetch" href="/blog/assets/js/5.24d4aeaf.js"><link rel="prefetch" href="/blog/assets/js/6.990936fa.js"><link rel="prefetch" href="/blog/assets/js/7.85379b8d.js"><link rel="prefetch" href="/blog/assets/js/8.2cfc0d69.js"><link rel="prefetch" href="/blog/assets/js/9.15a716c7.js">
     <link rel="stylesheet" href="/blog/assets/css/0.styles.b3ad8e09.css">
   </head>
   <body>
@@ -22,7 +22,7 @@
 </a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>JS</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/javascript/" class="sidebar-link">JavaScript</a></li><li><a href="/blog/javascript/new.html" class="active sidebar-link">new</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/javascript/new.html#new-fn-x" class="sidebar-link">new fn('x')</a></li></ul></li><li><a href="/blog/javascript/curring.html" class="sidebar-link">柯里化</a></li><li><a href="/blog/javascript/higher-order.html" class="sidebar-link">call bind apply理解</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>工程化</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/engineering/" class="sidebar-link">从React UI组件库项目研究前端工程化思路</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>其他</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/other/markdown.html" class="sidebar-link">MarkDown 基本语法</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="new"><a href="#new" class="header-anchor">#</a> new</h1> <p>js的 new 会做4件事情：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> <span class="token function-variable function">fn</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">a</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">this</span><span class="token punctuation">.</span>a <span class="token operator">=</span> a
 <span class="token punctuation">}</span>
-</code></pre></div><h2 id="new-fn-x"><a href="#new-fn-x" class="header-anchor">#</a> new fn('x')</h2> <ol><li><code>var temp = {}</code></li> <li><code>temp.\_\_proto\_\_ = fn.prototype</code></li> <li><code>fn.call(temp, 'x')</code></li> <li><code>return this</code></li></ol></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div><h2 id="new-fn-x"><a href="#new-fn-x" class="header-anchor">#</a> new fn('x')</h2> <ol><li><code>var temp = {}</code></li> <li><code>temp.__proto__ = fn.prototype</code></li> <li><code>fn.call(temp, 'x')</code></li> <li><code>return this</code></li></ol></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/blog/javascript/" class="prev router-link-active">
         JavaScript
@@ -31,6 +31,6 @@
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/blog/assets/js/app.b782e0a3.js" defer></script><script src="/blog/assets/js/2.c49ced60.js" defer></script><script src="/blog/assets/js/10.4e12e48e.js" defer></script>
+    <script src="/blog/assets/js/app.87b37d82.js" defer></script><script src="/blog/assets/js/2.c49ced60.js" defer></script><script src="/blog/assets/js/10.2b972517.js" defer></script>
   </body>
 </html>
