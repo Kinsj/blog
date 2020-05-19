@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>柯里化 | 老Kin的博客</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/blog/avatar.png">
+    <meta name="description" content="Just playing around">
+    <link rel="preload" href="/blog/assets/css/0.styles.b3ad8e09.css" as="style"><link rel="preload" href="/blog/assets/js/app.903f629b.js" as="script"><link rel="preload" href="/blog/assets/js/2.c49ced60.js" as="script"><link rel="preload" href="/blog/assets/js/8.46e8f635.js" as="script"><link rel="prefetch" href="/blog/assets/js/3.ac5368ca.js"><link rel="prefetch" href="/blog/assets/js/4.685e2bcc.js"><link rel="prefetch" href="/blog/assets/js/5.24d4aeaf.js"><link rel="prefetch" href="/blog/assets/js/6.990936fa.js"><link rel="prefetch" href="/blog/assets/js/7.85379b8d.js"><link rel="prefetch" href="/blog/assets/js/9.11d40b97.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b3ad8e09.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/avatar.png" alt="老Kin的博客" class="logo"> <span class="site-name can-hide">老Kin的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/javascript.html" class="nav-link">
+  技术文档
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/javascript.html" class="nav-link">
+  技术文档
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>JS</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/javascript/" class="sidebar-link">JavaScript</a></li><li><a href="/blog/javascript/curring.html" class="active sidebar-link">柯里化</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/javascript/curring.html#例1" class="sidebar-link">例1</a></li><li class="sidebar-sub-header"><a href="/blog/javascript/curring.html#例2" class="sidebar-link">例2</a></li></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>工程化</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/engineering/" class="sidebar-link">从React UI组件库项目研究前端工程化思路</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>其他</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/other/markdown.html" class="sidebar-link">MarkDown 基本语法</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="柯里化"><a href="#柯里化" class="header-anchor">#</a> 柯里化</h1> <p>柯里化主要就是把多参数的函数转换成但参数函数，单参数函数的好处在函数式中有所体现，这里不做细化</p> <h2 id="例1"><a href="#例1" class="header-anchor">#</a> 例1</h2> <p>如何把三参数函数 add(1,2,3) 变成：<br>
+curriedAdd(1)(2)(3)形式？</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">curriedAdd</span> <span class="token operator">=</span> 
+    <span class="token parameter">a</span> <span class="token operator">=&gt;</span> <span class="token parameter">b</span> <span class="token operator">=&gt;</span> <span class="token parameter">c</span> <span class="token operator">=&gt;</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c<span class="token punctuation">)</span> <span class="token comment">// 就这么简单</span>
+</code></pre></div><h2 id="例2"><a href="#例2" class="header-anchor">#</a> 例2</h2> <blockquote><p>currify(addTwo)(1)(2) // 3<br>
+currify(addThree)(1)(2)(3) // 6<br>
+currify(addFour)(1)(2)(3)(4) // 10<br> <strong>实现这个currify</strong></p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 基本实现</span>
+<span class="token keyword">function</span> <span class="token function">addThree</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span>b<span class="token punctuation">,</span>c</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a<span class="token operator">+</span>b<span class="token operator">+</span>c<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">currify</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> params <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token parameter">arg</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    params<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>fn<span class="token punctuation">.</span>length <span class="token operator">===</span> params<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>params<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token function">currify</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">...</span>params<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">currify</span><span class="token punctuation">(</span>addThree<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 6</span>
+
+<span class="token comment">// 优化： 支持 currify(addFour)(1)(2,3)(4) 这种形式</span>
+<span class="token keyword">const</span> <span class="token function-variable function">currify</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> params <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>fn<span class="token punctuation">.</span>length <span class="token operator">===</span> params<span class="token punctuation">.</span>length <span class="token operator">+</span> args<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>params<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token function">currify</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">...</span>params<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 简化代码：</span>
+<span class="token keyword">const</span> <span class="token function-variable function">currify</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> params <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> 
+  <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> 
+    fn<span class="token punctuation">.</span>length <span class="token operator">===</span> params<span class="token punctuation">.</span>length <span class="token operator">+</span> args<span class="token punctuation">.</span>length
+      <span class="token operator">?</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>params<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span>
+      <span class="token operator">:</span> <span class="token function">currify</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">...</span>params<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/javascript/" class="prev router-link-active">
+        JavaScript
+      </a></span> <span class="next"><a href="/blog/engineering/">
+        从React UI组件库项目研究前端工程化思路
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.903f629b.js" defer></script><script src="/blog/assets/js/2.c49ced60.js" defer></script><script src="/blog/assets/js/8.46e8f635.js" defer></script>
+  </body>
+</html>
