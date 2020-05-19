@@ -7,7 +7,7 @@
     <meta name="generator" content="VuePress 1.5.0">
     <link rel="icon" href="/blog/avatar.png">
     <meta name="description" content="Just playing around">
-    <link rel="preload" href="/blog/assets/css/0.styles.b3ad8e09.css" as="style"><link rel="preload" href="/blog/assets/js/app.6a8c24b0.js" as="script"><link rel="preload" href="/blog/assets/js/2.c49ced60.js" as="script"><link rel="preload" href="/blog/assets/js/6.cbc91455.js" as="script"><link rel="prefetch" href="/blog/assets/js/3.bf26d6c7.js"><link rel="prefetch" href="/blog/assets/js/4.685e2bcc.js"><link rel="prefetch" href="/blog/assets/js/5.24d4aeaf.js"><link rel="prefetch" href="/blog/assets/js/7.d2c8fde9.js"><link rel="prefetch" href="/blog/assets/js/8.b1d045f0.js">
+    <link rel="preload" href="/blog/assets/css/0.styles.b3ad8e09.css" as="style"><link rel="preload" href="/blog/assets/js/app.fdae99c6.js" as="script"><link rel="preload" href="/blog/assets/js/2.c49ced60.js" as="script"><link rel="preload" href="/blog/assets/js/6.eaaed784.js" as="script"><link rel="prefetch" href="/blog/assets/js/3.bf26d6c7.js"><link rel="prefetch" href="/blog/assets/js/4.685e2bcc.js"><link rel="prefetch" href="/blog/assets/js/5.24d4aeaf.js"><link rel="prefetch" href="/blog/assets/js/7.7af0a0f1.js"><link rel="prefetch" href="/blog/assets/js/8.a30eddf9.js">
     <link rel="stylesheet" href="/blog/assets/css/0.styles.b3ad8e09.css">
   </head>
   <body>
@@ -125,7 +125,7 @@ CircleCI会根据 <code>workflows</code> 里的 脚本去执行相应的操作�
     <span class="token string">&quot;/dist/**/*&quot;</span>
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
-</code></pre></div></li></ol> <p>发布出来的样子：<br> <img src="engineering/1.png" alt="发布后的目录结构"> &quot;npm publish&quot;)</p> <p>其实就是build出来的东西</p> <h2 id="自动持续集成-发布："><a href="#自动持续集成-发布：" class="header-anchor">#</a> 自动持续集成+发布：</h2> <ol><li><p>在之前的ci配置文件里增加一个自动发布工作流</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">publish</span><span class="token punctuation">:</span>
+</code></pre></div></li></ol> <p>发布出来的样子：<br> <img src="/blog/engineering/1.png" alt="发布后的目录结构"></p> <p>其实就是build出来的东西</p> <h2 id="自动持续集成-发布："><a href="#自动持续集成-发布：" class="header-anchor">#</a> 自动持续集成+发布：</h2> <ol><li><p>在之前的ci配置文件里增加一个自动发布工作流</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">publish</span><span class="token punctuation">:</span>
     <span class="token key atrule">&lt;&lt;</span><span class="token punctuation">:</span> <span class="token important">*defaults</span>
     <span class="token key atrule">steps</span><span class="token punctuation">:</span>
       <span class="token punctuation">-</span> <span class="token key atrule">attach_workspace</span><span class="token punctuation">:</span>
@@ -159,6 +159,6 @@ deploy 脚本发布 自动测试并发布</p></div> <footer class="page-edit"><!
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/blog/assets/js/app.6a8c24b0.js" defer></script><script src="/blog/assets/js/2.c49ced60.js" defer></script><script src="/blog/assets/js/6.cbc91455.js" defer></script>
+    <script src="/blog/assets/js/app.fdae99c6.js" defer></script><script src="/blog/assets/js/2.c49ced60.js" defer></script><script src="/blog/assets/js/6.eaaed784.js" defer></script>
   </body>
 </html>
