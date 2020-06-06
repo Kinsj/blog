@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Redux | 老Kin的博客</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/blog/avatar.png">
+    <meta name="description" content="Just playing around">
+    <link rel="preload" href="/blog/assets/css/0.styles.b3ad8e09.css" as="style"><link rel="preload" href="/blog/assets/js/app.d0902ca3.js" as="script"><link rel="preload" href="/blog/assets/js/2.c49ced60.js" as="script"><link rel="preload" href="/blog/assets/js/15.2d568c6e.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.73252189.js"><link rel="prefetch" href="/blog/assets/js/11.927c61ad.js"><link rel="prefetch" href="/blog/assets/js/12.a6b815e5.js"><link rel="prefetch" href="/blog/assets/js/13.428adc1d.js"><link rel="prefetch" href="/blog/assets/js/14.54169961.js"><link rel="prefetch" href="/blog/assets/js/16.594c43fc.js"><link rel="prefetch" href="/blog/assets/js/3.5de0083c.js"><link rel="prefetch" href="/blog/assets/js/4.685e2bcc.js"><link rel="prefetch" href="/blog/assets/js/5.24d4aeaf.js"><link rel="prefetch" href="/blog/assets/js/6.da0c2ac9.js"><link rel="prefetch" href="/blog/assets/js/7.d49f8bd1.js"><link rel="prefetch" href="/blog/assets/js/8.64aaccae.js"><link rel="prefetch" href="/blog/assets/js/9.a8c62c8a.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.b3ad8e09.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/avatar.png" alt="老Kin的博客" class="logo"> <span class="site-name can-hide">老Kin的博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/javascript.html" class="nav-link">
+  技术文档
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/javascript.html" class="nav-link">
+  技术文档
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>JS</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/javascript/" class="sidebar-link">JavaScript</a></li><li><a href="/blog/javascript/new.html" class="sidebar-link">new</a></li><li><a href="/blog/javascript/curring.html" class="sidebar-link">柯里化</a></li><li><a href="/blog/javascript/higher-order.html" class="sidebar-link">call bind apply理解</a></li><li><a href="/blog/javascript/bind.html" class="sidebar-link">手写bind</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Vue</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/vue/vuex-modules.html" class="sidebar-link">Vuex 模块化实践</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>React</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/react/hooks.html" class="sidebar-link">React Hooks 理解</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>浏览器</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/chrome/" class="sidebar-link">页面渲染机制（DOM和CSSOM树）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>工程化</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/engineering/" class="sidebar-link">从React UI组件库项目研究前端工程化思路</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>其他</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/other/markdown.html" class="sidebar-link">MarkDown 基本语法</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="redux"><a href="#redux" class="header-anchor">#</a> Redux</h1> <p><strong>首先明确一点：redux 并非只为 react 而生</strong><br> <strong>全局状态管理并非必须使用redux</strong> <strong>redux 本质就是一个eventBus</strong></p> <h3 id="用一个简单例子来理解-redux"><a href="#用一个简单例子来理解-redux" class="header-anchor">#</a> 用一个简单例子来理解 Redux</h3> <p>一个爷孙结构组件模型：
+<img src="/blog/react/redux1.png" alt="组件模型"></p> <h2 id="eventbus版"><a href="#eventbus版" class="header-anchor">#</a> eventBus版</h2> <p>主要思路就是：</p> <ul><li>把所有状态定义在外部，并把状态通过props层层传递给子组件</li> <li>所有操作都由管家执行（管家在eventBus上注册了所有对状态的操作接口，组件们通过eventBus Trigger事件给管家执行事件）</li> <li>管家执行完后需要重新render整个 App，react diff只会更新修改了的部分</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&quot;react&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ReactDOM <span class="token keyword">from</span> <span class="token string">&quot;react-dom&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">&quot;./styles.css&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> EventBus <span class="token keyword">from</span> <span class="token string">&quot;./eventBus&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> eventBus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">EventBus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> money <span class="token operator">=</span> <span class="token punctuation">{</span>
+  amount<span class="token operator">:</span> <span class="token number">10000</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 管家</span>
+<span class="token keyword">const</span> guanjia <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">init</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    eventBus<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;需要消费&quot;</span><span class="token punctuation">,</span> <span class="token parameter">data</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      money<span class="token punctuation">.</span>amount <span class="token operator">-=</span> data<span class="token punctuation">;</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>money<span class="token punctuation">.</span>amount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+guanjia<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 组件</span>
+<span class="token keyword">function</span> <span class="token function">GrandFather</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;block&quot;</span><span class="token operator">&gt;</span>
+      爷爷： <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>money<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>br <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Father1 money<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>money<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Father2 money<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>money<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">Father1</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;father&quot;</span><span class="token operator">&gt;</span>
+      爸爸<span class="token number">1</span>： <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>money<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Child1 money<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>money<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Child2 money<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>money<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">Father2</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;father&quot;</span><span class="token operator">&gt;</span>
+      爸爸<span class="token number">2</span>： <span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>money<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Child3 money<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>money<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Child4 money<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>money<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">Child1</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;child&quot;</span><span class="token operator">&gt;</span>
+      儿子<span class="token number">1</span>：<span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>money<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">Child2</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;child&quot;</span><span class="token operator">&gt;</span>
+      儿子<span class="token number">2</span>：<span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>money<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>button
+        onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          eventBus<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">&quot;需要消费&quot;</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">}</span>
+      <span class="token operator">&gt;</span>
+        消费<span class="token number">100</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">Child3</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;child&quot;</span><span class="token operator">&gt;</span>
+      儿子<span class="token number">3</span>：<span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>money<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>button
+        onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          eventBus<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">&quot;需要消费&quot;</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">}</span>
+      <span class="token operator">&gt;</span>
+        消费<span class="token number">200</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">Child4</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;child&quot;</span><span class="token operator">&gt;</span>
+      儿子<span class="token number">4</span>：<span class="token operator">&lt;</span>span<span class="token operator">&gt;</span><span class="token punctuation">{</span>props<span class="token punctuation">.</span>money<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// App</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;App&quot;</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>GrandFather money<span class="token operator">=</span><span class="token punctuation">{</span>money<span class="token punctuation">.</span>amount<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> rootElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;root&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// render</span>
+<span class="token keyword">function</span> <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>App <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> rootElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.d0902ca3.js" defer></script><script src="/blog/assets/js/2.c49ced60.js" defer></script><script src="/blog/assets/js/15.2d568c6e.js" defer></script>
+  </body>
+</html>
